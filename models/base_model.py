@@ -4,10 +4,14 @@
 '''
 import os
 import uuid
-from datetime import datetime
+import os
 import models
+from datetime import datetime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, DateTime
+
+
+Base = declarative_base()
 
 
 if os.getenv('HBNB_TYPE_STORAGE') == 'db':
@@ -76,19 +80,18 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-        '''
-            Return dictionary representation of BaseModel class.
-        '''
-        cp_dct = dict(self.__dict__)
+        """Convert instance into dict format"""
+        dicti = dict(self.__dict__)
+
         try:
-            del cp_dct['_sa_instance_state']
+            del dicti['_sa_instance_state']
         except KeyError:
             pass
-        cp_dct['__class__'] = self.__class__.__name__
-        cp_dct['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
-        cp_dct['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
 
-        return (cp_dct)
+        dicti['__class__'] = self.__class__.__name__
+        dicti['created_at'] = self.created_at.strftime('%Y-%m-%dT%H:%M:%D.%f')
+        dicti['updated_at'] = self.updated_at.strftime('%Y-%m-%dT%H:%M:%D.%f')
+        return dicti
 
     def delete(self):
         '''

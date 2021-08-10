@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-'''
-    Implementation of the State class
-'''
-
-from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, ForeignKey
-from sqlalchemy.orm import relationship
+""" State Module for HBNB project """
 import os
 import models
+from sqlalchemy import Column, String
 from models.city import City
+from sqlalchemy.orm import relationship
+from models.base_model import BaseModel, Base
 
 
 class State(BaseModel, Base):
@@ -25,10 +22,14 @@ class State(BaseModel, Base):
 
         @property
         def cities(self):
-            city_dict = models.storage.all(City)
-            state_query = self.id
+            """
+                Getter method that returns list of city
+                instances with state_id == State.id
+                FileStorage Relationship between State and City
+            """
+            cities_dict = models.storage.all(City)
             city_list = []
-            for k, v in city_dict.items():
-                if v.state_id == self.id:
+            for key, value in cities_dict.items():
+                if value.state_id == self.id:
                     city_list.append(v)
             return city_list
