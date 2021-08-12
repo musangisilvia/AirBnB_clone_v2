@@ -12,9 +12,11 @@ from sqlalchemy import Column, ForeignKey, String, Integer, Float, Table
 if os.getenv('HBNB_TYPE_STORAGE') == 'db':
     association_table = Table('place_amenity', Base.metadata,
                               Column('place_id', String(60), ForeignKey(
-                                  'places.id'), nullable=False),
+                                  'places.id'), nullable=False,
+                                  primary_key=True),
                               Column('amenity_id', String(60), ForeignKey(
-                                  'amenities.id'), nullable=False)
+                                  'amenities.id'), nullable=False,
+                                  primary_key=True)
                               )
 
 
@@ -38,7 +40,8 @@ class Place(BaseModel, Base):
         reviews = relationship("Review", cascade="delete", backref="place")
         amenities = relationship("Amenity",
                                  secondary=association_table,
-                                 viewonly=False)
+                                 viewonly=False,
+                                 back_populates="place_amenities")
     else:
         city_id = ""
         user_id = ""
