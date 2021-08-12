@@ -63,9 +63,9 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
-        '''
-        Deletes an object from __objects if it is inside of __objects
-        '''
+        """
+            Deletes an object from __objects if it is inside of __objects
+        """
         copy_storage = dict(FileStorage.__objects)
         desired_key = obj
         for key, val in copy_storage.items():
