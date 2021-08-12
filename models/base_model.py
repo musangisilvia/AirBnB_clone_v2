@@ -11,9 +11,6 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, DateTime
 
 
-Base = declarative_base()
-
-
 if os.getenv('HBNB_TYPE_STORAGE') == 'db':
     Base = declarative_base()
 else:
@@ -89,8 +86,8 @@ class BaseModel:
             pass
 
         dicti['__class__'] = self.__class__.__name__
-        dicti['created_at'] = self.created_at.strftime('%Y-%m-%dT%H:%M:%D.%f')
-        dicti['updated_at'] = self.updated_at.strftime('%Y-%m-%dT%H:%M:%D.%f')
+        dicti['created_at'] = self.created_at.strftime('%Y-%m-%dT%H:%M:%S.%f')
+        dicti['updated_at'] = self.updated_at.strftime('%Y-%m-%dT%H:%M:%S.%f')
         return dicti
 
     def delete(self):
