@@ -1,19 +1,31 @@
 #!/usr/bin/env bash
 
 # install nginx if not installed
-
-sudo apt-get update
-sudo apt-get install -y nginx
+if ! which nginx;
+then
+    sudo apt-get update
+    sudo apt-get install -y nginx
+fi
 
 # create folders if they don't exist
-sudo mkdir /data/
-sudo mkdir /data/web_static/
-sudo mkdir /data/web_static/releases/
-sudo mkdir /data/web_static/shared/
-sudo mkdir /data/web_static/releases/test/
+if [[ ! -e /data/web_static/releases/test/ ]];
+then
+    sudo mkdir -p /data/web_static/releases/test/
+fi
+
+if [[ ! -e /data/web_static/shared/ ]];
+then
+    sudo mkdir -p /data/web_static/shared/
+fi
 
 # create dummy html file
-echo "Holberton School" | sudo tee /data/web_static/releases/test/index.html
+echo "<html>
+  <head>
+  </head>
+  <body>
+    Holberton School
+  </body>
+  </html>" > /data/web_static/releases/test/index.html
 
 # create symbolic link
 sudo ln -fs /data/web_static/releases/test/ /data/web_static/current
