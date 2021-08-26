@@ -5,7 +5,7 @@
 """
 
 from os.path import isfile
-from fabric.api import local
+from fabric.api import local, run, env, put
 import time
 env.hosts = ['35.196.21.97', '34.139.18.218']
 
@@ -57,6 +57,6 @@ def deploy():
     """
     Calls do_pack() function then do_deploy
     """
-    archive_path = do_path
+    archive_path = do_pack()
     if archive_path:
         return do_deploy(archive_path)
