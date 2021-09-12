@@ -35,21 +35,20 @@ class DBStorage():
                                       format(user, passwd, db),
                                       pool_pre_ping=True)
         if os.getenv('HBNB_ENV') == 'test':
-            Base.metadat.drop_all(self.__engine)
+            Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
         """
             query on the current database session
         """
         all_objs = {}
-
-        if cls is not None:
-            for row in self.__session.query(eval(cls)).all():
+        classes = ['User', 'State', 'City', 'Amenity', 'Place',
+                   'Review']
+        if cls is not None and cls in classes:
+            for row in self.__session.query(cls).all():
                 key = row.__class__.__name__ + '.' + row.id
                 all_objs[key] = row
         else:
-            classes = ['User', 'State', 'City', 'Amenity', 'Place',
-                       'Review']
             for clse in classes:
                 for row in self.__session.query(eval(clse)).all():
                     key = row.__class__.__name__ + '.' + row.id
@@ -83,4 +82,10 @@ class DBStorage():
         session_factory = sessionmaker(bind=self.__engine,
                                        expire_on_commit=False)
         Session = scoped_session(session_factory)
-        self.__session = Session()
+        self.__session = Session
+
+    def close(self):
+        """
+            close the session
+        """
+        self.__session.remove()
