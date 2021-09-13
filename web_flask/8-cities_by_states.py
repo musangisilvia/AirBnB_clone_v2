@@ -15,7 +15,7 @@ def states_list():
         displays a html page containing states
     """
     return render_template('8-cities_by_states.html',
-                           tes=storage.all("State"))
+                           states=storage.all("State"))
 
 
 @app.teardown_appcontext
