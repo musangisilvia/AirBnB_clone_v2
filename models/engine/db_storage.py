@@ -45,7 +45,7 @@ class DBStorage():
         classes = ['User', 'State', 'City', 'Amenity', 'Place',
                    'Review']
         if cls is not None and cls in classes:
-            for row in self.__session.query(cls).all():
+            for row in self.__session.query(eval(cls)).all():
                 key = row.__class__.__name__ + '.' + row.id
                 all_objs[key] = row
         else:
