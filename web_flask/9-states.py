@@ -14,8 +14,8 @@ def states():
     """
         displays a html page containing states
     """
-    return render_template('9-states.html',
-                           states=storage.all("State"))
+    states = storage.all("State")
+    return render_template('9-states.html', states=states)
 
 
 @app.route('/states/<id>', strict_slashes=False)
@@ -23,11 +23,12 @@ def states_id(id):
     """
         displays state based on id passed
     """
-    states = storage.all("State")
-    state = ''
-    for state_id in states:
-        if state_id == id:
-            state = states[state_id]
+    states = storage.all("State").values()
+    state = None
+    for s_id in states:
+        if s_id.id == id:
+            state = s_id
+
     return render_template('9-states.html', state=state)
 
 
