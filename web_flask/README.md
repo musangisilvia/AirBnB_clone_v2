@@ -7,14 +7,12 @@ In the AirBnB Clone project Flask is used to make the static HTML files dynamic 
 ## Starting a Flask Web Application
 
 The web application will be listening on 0.0.0.0 port 5000. The storage variable defined in [models/__init__.py](https://github.com/musangisilvia/AirBnB_clone_v2/blob/master/models/__init__.py) is used to fetch data from the storage engine.
- ```
  - Import:
  	from models import storage
 
  - Usage:
  	* storage.all(...) - fetch the data from the storage engine
  	* storage.close() - closes the current SQLAlchemy Session.
- ```
 
 ## Setting up flask
 Import Flask from flask module in python.
@@ -27,56 +25,53 @@ After each request, the current SQLAlchemy Session is removed by:
 
 These routes are defined to enable access to the different data from the storage engine ( database for this case )
 To have some data in the database, import this [7-dump](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/290/7-states_list.sql)
+
 ```
 musangi@ubuntu:~/AirBnB_v2$ curl -o 7-dump.sql "https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/290/7-states_list.sql"
 musangi@ubunutu:~/AirBnB_v2$ cat 7-dump.sql | mysql -uroot -p
 Enter password:
 musangi@ubuntu:~/AirBnB_v2$
-
 ```
+
 1. /state_list - display a HTML page [7-states_list.html](https://github.com/musangisilvia/AirBnB_clone_v2/blob/master/web_flask/templates/7-states_list.html)
+
 - Display format: 
 	* H1: "States"
 	* UL: List of all states.
 		* LI: ``` <state.id>: <B><state.name></B>```, in ascending order. <br>
 
-To run it:
+To run it: <br>
 
-<p>On terminal 1 => </p>
+On terminal 1 <br>
+
 ```
 musangi@ubuntu:~/AirBnB_v2$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db python3 -m web_flask.7-states_list
 * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 ...
+
 ```
 
-<p>On Terminal 2 => </p>
-```
-musangi@ubuntu:~/AirBnB_clone_v2$ curl 0.0.0.0:5000/states_list ; echo "" <br>
+On Terminal 2 <br>
 
-<!DOCTYPE html>
-<HTML lang="en">
-    <HEAD>
-	        <TITLE>HBNB</TITLE>
-	</HEAD>
-	<BODY>
-	        <H1>States</H1>
-	        <UL>
-	            <LI>421a55f4-7d82-47d9-b54c-a76916479545: <B>Alabama</B></LI>
-	            <LI>421a55f4-7d82-47d9-b54c-a76916479546: <B>Arizona</B></LI>
-	            <LI>421a55f4-7d82-47d9-b54c-a76916479547: <B>California</B></LI>
-	            <LI>421a55f4-7d82-47d9-b54c-a76916479548: <B>Colorado</B></LI>
-	            <LI>421a55f4-7d82-47d9-b54c-a76916479549: <B>Florida</B></LI>
-	            <LI>421a55f4-7d82-47d9-b54c-a76916479550: <B>Georgia</B></LI>
-	            <LI>421a55f4-7d82-47d9-b54c-a76916479551: <B>Hawaii</B></LI>
-	            <LI>421a55f4-7d82-47d9-b54c-a76916479552: <B>Illinois</B></LI>
-	            <LI>421a55f4-7d82-47d9-b54c-a76916479553: <B>Indiana</B></LI>
-	            <LI>421a55f4-7d82-47d9-b54c-a76916479554: <B>Louisiana</B></LI>
-	            <LI>421a55f4-7d82-47d9-b54c-a76916479555: <B>Minnesota</B></LI>
-	            <LI>421a55f4-7d82-47d9-b54c-a76916479556: <B>Mississippi</B></LI>
-	            <LI>421a55f4-7d82-47d9-b54c-a76916479557: <B>Oregon</B></LI>
-	        </UL>
-    </BODY>
-</HTML>
+```
+musangi@ubuntu:~/AirBnB_clone_v2$ curl 0.0.0.0:5000/states_list ; echo ""
+
+<H1>States</H1>
+<UL>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479545: <B>Alabama</B></LI>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479546: <B>Arizona</B></LI>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479547: <B>California</B></LI>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479548: <B>Colorado</B></LI>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479549: <B>Florida</B></LI>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479550: <B>Georgia</B></LI>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479551: <B>Hawaii</B></LI>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479552: <B>Illinois</B></LI>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479553: <B>Indiana</B></LI>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479554: <B>Louisiana</B></LI>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479555: <B>Minnesota</B></LI>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479556: <B>Mississippi</B></LI>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479557: <B>Oregon</B></LI>
+</UL>
 
 ```
 
