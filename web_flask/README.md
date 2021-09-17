@@ -150,6 +150,10 @@ On terminal 2 <br>
 4. /hbnb_filters: displays a HTML page [10-hbnb_filters.html](https://github.com/musangisilvia/AirBnB_clone_v2/blob/master/web_flask/templates/10-hbnb_filters.html)
 
 - Display format is as shown in the pictures:
-[!image]()
+![image](https://user-images.githubusercontent.com/27401241/133841192-ef3e3642-8dc2-49ea-b321-33a14c6b119d.png)
+![image](https://user-images.githubusercontent.com/27401241/133841211-a66bcac2-da3e-4b85-9272-39c5fbe111a0.png)
+![image](https://user-images.githubusercontent.com/27401241/133841236-a8d8070a-3110-44c5-9221-3168ad31d853.png)
+![image](https://user-images.githubusercontent.com/27401241/133841253-8f8cb256-74b7-42ee-a20e-32dc5472ad16.png)
+
 
 
