@@ -83,15 +83,39 @@ musangi@ubuntu:~/AirBnB_clone_v2$ curl 0.0.0.0:5000/states_list ; echo ""
 		* UL: list of all city objects linked to the State, in ascending order.
 			*LI: ``` <city.id>: <B><city.name></B> ```. <br>
 
-To run it:
+To run it: <br>
 
-<p>On terminal 1 => </p>
+On terminal 1 <br>
+
 ```
 musangi@ubuntu:~/AirBnB_clone_v2$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db python3 -m web_flask.8-cities_by_states
 * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 ...
 ```
 
-<p>On terminal 2 => </p>
+On terminal 2 <br>
+
 ```
+...
+<H1>States</H1>
+<UL>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479545: <B>Alabama</B>
+		<UL>
+			<LI>521a55f4-7d82-47d9-b54c-a76916479545: <B>Akron</B></LI>
+			<LI>531a55f4-7d82-47d9-b54c-a76916479545: <B>Babbie</B></LI>
+			<LI>541a55f4-7d82-47d9-b54c-a76916479545: <B>Calera</B></LI>
+			<LI>551a55f4-7d82-47d9-b54c-a76916479545: <B>Fairfield</B></LI>
+		</UL>
+	</LI>
+	<LI>421a55f4-7d82-47d9-b54c-a76916479546: <B>Arizona</B>
+		<UL>
+			<LI>521a55f4-7d82-47d9-b54c-a76916479546: <B>Douglas</B></LI>
+			<LI>531a55f4-7d82-47d9-b54c-a76916479546: <B>Kearny</B></LI>
+			<LI>541a55f4-7d82-47d9-b54c-a76916479546: <B>Tempe</B></LI>
+		</UL>																			     
+	</LI>
+	...
+</UL>
+...
 ```
+
