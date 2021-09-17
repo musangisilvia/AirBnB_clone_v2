@@ -55,24 +55,30 @@ On Terminal 2 <br>
 
 ```
 musangi@ubuntu:~/AirBnB_clone_v2$ curl 0.0.0.0:5000/states_list ; echo ""
-
-<H1>States</H1>
-<UL>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479545: <B>Alabama</B></LI>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479546: <B>Arizona</B></LI>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479547: <B>California</B></LI>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479548: <B>Colorado</B></LI>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479549: <B>Florida</B></LI>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479550: <B>Georgia</B></LI>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479551: <B>Hawaii</B></LI>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479552: <B>Illinois</B></LI>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479553: <B>Indiana</B></LI>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479554: <B>Louisiana</B></LI>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479555: <B>Minnesota</B></LI>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479556: <B>Mississippi</B></LI>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479557: <B>Oregon</B></LI>
-</UL>
-
+<!DOCTYPE html>
+<HTML lang="en">
+	<HEAD>
+		<TITLE>HBNB</TITLE>
+	</HEAD>
+	<BODY>
+		<H1>States</H1>
+		<UL>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479545: <B>Alabama</B></LI>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479546: <B>Arizona</B></LI>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479547: <B>California</B></LI>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479548: <B>Colorado</B></LI>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479549: <B>Florida</B></LI>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479550: <B>Georgia</B></LI>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479551: <B>Hawaii</B></LI>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479552: <B>Illinois</B></LI>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479553: <B>Indiana</B></LI>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479554: <B>Louisiana</B></LI>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479555: <B>Minnesota</B></LI>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479556: <B>Mississippi</B></LI>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479557: <B>Oregon</B></LI>
+		</UL>
+	</BODY>
+</HTML>
 ```
 
 2. /cities_by_states - display a HTML page [8-cities_by_states.html](https://github.com/musangisilvia/AirBnB_clone_v2/blob/master/web_flask/templates/8-cities_by_states.html)
@@ -96,26 +102,54 @@ musangi@ubuntu:~/AirBnB_clone_v2$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_d
 On terminal 2 <br>
 
 ```
-...
-<H1>States</H1>
-<UL>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479545: <B>Alabama</B>
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+		<H1>States</H1>
 		<UL>
-			<LI>521a55f4-7d82-47d9-b54c-a76916479545: <B>Akron</B></LI>
-			<LI>531a55f4-7d82-47d9-b54c-a76916479545: <B>Babbie</B></LI>
-			<LI>541a55f4-7d82-47d9-b54c-a76916479545: <B>Calera</B></LI>
-			<LI>551a55f4-7d82-47d9-b54c-a76916479545: <B>Fairfield</B></LI>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479545: <B>Alabama</B>
+				<UL>
+					<LI>521a55f4-7d82-47d9-b54c-a76916479545: <B>Akron</B></LI>
+					<LI>531a55f4-7d82-47d9-b54c-a76916479545: <B>Babbie</B></LI>
+					<LI>541a55f4-7d82-47d9-b54c-a76916479545: <B>Calera</B></LI>
+					<LI>551a55f4-7d82-47d9-b54c-a76916479545: <B>Fairfield</B></LI>
+				</UL>
+			</LI>
+			<LI>421a55f4-7d82-47d9-b54c-a76916479546: <B>Arizona</B>
+				<UL>
+					<LI>521a55f4-7d82-47d9-b54c-a76916479546: <B>Douglas</B></LI>
+					<LI>531a55f4-7d82-47d9-b54c-a76916479546: <B>Kearny</B></LI>
+					<LI>541a55f4-7d82-47d9-b54c-a76916479546: <B>Tempe</B></LI>
+				</UL>
+			</LI>
+			...
 		</UL>
-	</LI>
-	<LI>421a55f4-7d82-47d9-b54c-a76916479546: <B>Arizona</B>
-		<UL>
-			<LI>521a55f4-7d82-47d9-b54c-a76916479546: <B>Douglas</B></LI>
-			<LI>531a55f4-7d82-47d9-b54c-a76916479546: <B>Kearny</B></LI>
-			<LI>541a55f4-7d82-47d9-b54c-a76916479546: <B>Tempe</B></LI>
-		</UL>																			     
-	</LI>
-	...
-</UL>
-...
+	</BODY>
+</HTML>
 ```
+
+3. /states and /states/<id> display a HTML page [9-states.html](https://github.com/musangisilvia/AirBnB_clone_v2/blob/master/web_flask/templates/9-states.html)
+- Display format for /states route:
+	* H1: "States"
+	* UL: list of all State objects present in database storage
+		* LI: <state.id>: <B><state.name></B> , sorted in ascending order.
+
+- Display format for /states/<id> route:
+	* H1: "States"
+	* H3: "Cities"
+	* UL: list of all City objects linked to the state, sorted in ascending order.
+		* LI: <city.id>: <B><city.name></B>
+	* If <id> is not found:
+		* H1: "Not found!"
+
+- Run similar to the first two routes, only chaning the python module name to web_flask.9-states.
+
+4. /hbnb_filters: displays a HTML page [10-hbnb_filters.html](https://github.com/musangisilvia/AirBnB_clone_v2/blob/master/web_flask/templates/10-hbnb_filters.html)
+
+- Display format is as shown in the pictures:
+[!image]()
+
 
